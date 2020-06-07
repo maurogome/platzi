@@ -1,0 +1,13 @@
+news_sites:
+  elcolombiano:
+    url: https://www.elcolombiano.com
+    queries:
+      homepage_article_links : '.noticia a'
+      article_body: '.articulo'
+      article_title: '.information-noticia span'
+  eltiempo:
+    url: https://www.eltiempo.com
+    queries:
+      homepage_article_links : '.title-container a'
+      article_body: '.modulos'
+      article_title: '.titulo-principal-bk h1'
