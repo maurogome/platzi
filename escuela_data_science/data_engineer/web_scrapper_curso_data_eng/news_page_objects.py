@@ -24,6 +24,7 @@ class NewsPage:
 
     def _visit(self, url):
         response = requests.get(url)
+        response.encoding = 'utf-8'
 
         response.raise_for_status()
 

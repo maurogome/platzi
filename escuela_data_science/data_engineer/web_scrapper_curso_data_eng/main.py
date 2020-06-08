@@ -58,7 +58,7 @@ def _build_link(host, link):
     elif is_root_path.match(link):
         return '{}{}'.format(host, link)
     else:
-        return '{host}/{uri}'.format(host = host, url = link)
+        return '{host}/{url}'.format(host = host, url = link)
 
 
 

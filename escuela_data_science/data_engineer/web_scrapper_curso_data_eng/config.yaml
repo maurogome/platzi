@@ -2,9 +2,9 @@ news_sites:
   elcolombiano:
     url: https://www.elcolombiano.com
     queries:
-      homepage_article_links : '.noticia a'
-      article_body: '.articulo'
-      article_title: '.information-noticia span'
+      homepage_article_links : '.noticia-segundaria a'
+      article_body: '.noticia'
+      article_title: '.information-noticia h3'
   eltiempo:
     url: https://www.eltiempo.com
     queries:
