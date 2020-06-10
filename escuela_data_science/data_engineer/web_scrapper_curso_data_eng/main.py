@@ -11,7 +11,7 @@ from requests.exceptions import HTTPError
 from urllib3.exceptions import MaxRetryError
 
 logger = logging.getLogger(__name__)
-is_well_formed_link = re.compile(r'^https?://.+/.+') # https://example.com/hello-internet
+is_well_formed_link = re.compile(r'^https?://.+/.+$') # https://example.com/hello-internet
 is_root_path = re.compile(r'^/.+$') # some-text
 
 def _news_scraper(news_site_uid):
@@ -29,7 +29,7 @@ def _news_scraper(news_site_uid):
         if article:
             logger.info('Article fetched!!')
             articles.append(article)
-            print(article.title)
+            #print(article.title)
 
     _save_articles(news_site_uid, articles)
 
@@ -58,7 +58,7 @@ def _build_link(host, link):
     elif is_root_path.match(link):
         return '{}{}'.format(host, link)
     else:
-        return '{host}/{url}'.format(host = host, url = link)
+        return '{}/{}'.format(host = host, url = link) #revisar
 
 
 
