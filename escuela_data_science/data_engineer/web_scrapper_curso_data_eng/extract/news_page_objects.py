@@ -14,7 +14,7 @@ class NewsPage:
         self._visit_page(url)
 
     def _select(self, query_string):
-        
+
         return self._html.select(query_string)
 
         """
@@ -27,7 +27,7 @@ class NewsPage:
         """
 
     def _visit_page(self, url):
-        
+
         try:
             response = requests.get(url)
             response.encoding = 'utf-8'
@@ -72,7 +72,7 @@ class ArticlePage(NewsPage):
     @property
     def url(self):
         return self._url #revisar
-    
+
 
 
 
