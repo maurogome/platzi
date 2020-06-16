@@ -65,8 +65,7 @@ def _build_link(host, link):
 def _save_articles(news_site_uid, articles):
     now = datetime.datetime.now().strftime('%Y_%m_%d')
     csv_headers = list(filter(lambda property: not property.startswith('_'), dir(articles[0])))
-    out_file_name = '{news_site_uid}_{datetime}_articles.csv'.format(news_site_uid = news_site_uid, datetime = now)
-    
+    out_file_name = '{news_site_uid}_{datetime}_articles.csv'.format(news_site_uid = news_site_uid, datetime = now
 
     with open(out_file_name, mode = 'w+') as f:
         writer = csv.writer(f)
@@ -77,7 +76,7 @@ def _save_articles(news_site_uid, articles):
             writer.writerow(row)
 
 
-        
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
