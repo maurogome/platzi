@@ -2,6 +2,8 @@ import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 import logging
+import datetime
+import csv
 
 logging.basicConfig(level = logging.INFO)
 logger = logging.getLogger(__name__)
@@ -10,9 +12,9 @@ def main(soup):
     hot_sections = [section.a.get('href') for section in soup.find('ul', attrs = {'class' : 'hot-sections'}).find_all('li')]
     link_list = _extract_links(hot_sections)
     scrapped_data = _extract_data(link_list)
-    df = pd.DataFrame(scrapped_data, index = len(scrapped_data))
-    #df = df.head()
-    df.to_csv('Pagina12_data.csv')
+    #df = pd.DataFrame(scrapped_data, index = len(scrapped_data))
+    _save_file(scrapped_data)
+    
         
 def _extract_links(hot_sections):
     
@@ -91,6 +93,17 @@ def _extract_data(link_list):
         scrapped_data.append(data)
 
     return data
+
+def _save_file(df):
+    now = datetime.datetime.now().strftime('%Y_%m_%d')
+    file_name = 'pagina12_{}_df.csv'.format(now)
+
+    with open(file_name, mode = 'w+', encoding = 'utf-8') as f:
+        writer = csv.DictWriter(f, df.keys())
+        writer.writeheader()
+        for article in df:
+            writer.writerow(df)
+
 
 if __name__ == '__main__':
 
