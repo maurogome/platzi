@@ -87,4 +87,102 @@ class Person{
 	function walk(){}
 }
 ```
+---
+# Herencia
+DRY *Don't Repeat Yourself:*
+- Promueve la reduccion de duplicacion en programacion
+- Toda pieza de informacion **nunca deberia ser duplicada** debido a que la duplicacion **incrementa la dificultad** en los cambios y evolucion.
+
+La herencia nos permite crear nuevas clases a partir de otras.
+- Se establece una relacion **padre e hijo**
+- La clase padre es conocida como la superclase
+- Las clases hijas son las subclases.
+
+Cuando detecto una relacion entre los elementos de diferentes objetos, puedo generar una abstraccion y crear una clase que contenga todos estos elementos.
+---
+## Declaracion de Objetos
+Un objeto es una instancia de una clase
+
+**Java**
+```
+Person person = new Person();
+```
+
+**JavaScript**
+```
+var person = new Person();
+```
+
+**Python**
+```
+person = Person()
+```
+
+**PHP**
+```
+$person = new Person();
+```
+---
+# Metodo Constructor
+- Da un estado inicial al objeto
+- Tiene el mismo nombre de la clase
+- Son los parametros minimos que necesita el objeto para que pueda vivir
+
+**Java**
+```
+public Person(String name){
+	this.name = name;
+}
+```
+
+**JavaScript**
+```
+function Person(name){
+	this.name = name
+}
+```
+
+**Python**
+```
+def __init__(self, name):
+	self.name = name
+```
+
+**PHP**
+```
+public function_construct($name){
+	$this->name = name;
+}
+```
+# Herencia
+**Java**
+```
+class Student extends Person
+```
+
+**JavaScript**
+```student.prototype = new Person();
+```
+
+**Python**
+```
+class Student(Person):
+```
+
+**PHP**
+```
+class Student extends Person
+```
+---
+# Encapsulamiento
+Para que un dato permanezca inviolable, inalterable, se le asigna un modificador de acceso
+
+- public: Permite ser accedido por cualquier elemento.
+- protected: Puede ser accedido por la clase, paquetes y subclases.
+- default: Puede ser accedido por clases y paquetes.
+- private: Puede ser accedido solo por clases.
+---
+# Polimorfismo
+- Muchas Formas.
+- Construir metodos con el mismo nombre pero con comportamiento diferente.
 
