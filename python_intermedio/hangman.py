@@ -83,12 +83,12 @@ def clean_word(word):
 
     return clean_word.join(word_list)
 
-def ask_letter():
+def ask_letter(tries):
     letter = input("Ingresa una letra: ")
     valid_letter = False
 
     while not valid_letter:
-        if len(letter) != 1 or letter.isalpha() == False:
+        if len(letter) != 1 or letter.isalpha() == False or letter in tries:
             letter = input("Ingresa solo una letra: ")
         else:
             valid_letter = True
@@ -105,7 +105,7 @@ def run():
 
     while lifes > 0:
         print_board(hidden_word, lifes, tries)
-        letter = ask_letter()
+        letter = ask_letter(tries)
         tries.append(letter)
         lifes, hidden_word = check_letter(word, letter, hidden_word, lifes)
 
